@@ -74,4 +74,28 @@ vim.cmd [[
   nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 ]]
 
+-- NERDtree keymaps
+vim.cmd [[
+  nnoremap <leader>n :NERDTreeFocus<CR>
+  nnoremap <C-n> :NERDTree<CR>
+  nnoremap <C-t> :NERDTreeToggle<CR>
+  nnoremap <C-f> :NERDTreeFind<CR>
+]]
 
+vim.cmd [[
+  map <Leader>t :term<cr>
+]]
+
+-- Floaterm keymaps
+vim.cmd [[
+  nnoremap   <silent>   <F7>    :FloatermNew<CR>
+  tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+  nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+  tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+  nnoremap   <silent>   <F9>    :FloatermNext<CR>
+  tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+  nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+  tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+
+  nnoremap   <silent>   <F8>   :FloatermNew lazygit<CR>
+]]
