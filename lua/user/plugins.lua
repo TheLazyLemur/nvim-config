@@ -38,23 +38,33 @@ packer.init {
   },
 }
 
-
 -- Install your plugins here
 return packer.startup(function(use)
-  -- Core Plugins
+
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "nvim-lua/telescope.nvim" -- A better version of vim's built-in command line
-  use "preservim/nerdtree" -- A tree view for your files
-  use "tpope/vim-fugitive" -- Git integration for vim
-  use "fatih/vim-go"
+
+  -- Core Plugins
+  use "nvim-lua/popup.nvim"
+  use "nvim-lua/plenary.nvim" 
+  use "nvim-lua/telescope.nvim" 
   use "voldikss/vim-floaterm"
+  use "preservim/nerdtree" 
+  use "airblade/vim-gitgutter"
 
-  -- Copilot
+  -- Language Plugins
+  use "fatih/vim-go"
+  use 'neovim/nvim-lspconfig'
   use "github/copilot.vim"
+  use  "rust-lang/rust.vim"
 
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+
+  -- Appearance / Utility Plugins
   use "dracula/vim"
+  use "mhinz/vim-startify"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
