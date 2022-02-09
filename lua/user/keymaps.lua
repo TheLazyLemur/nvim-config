@@ -82,10 +82,6 @@ vim.cmd [[
   nnoremap <C-f> :NERDTreeFind<CR>
 ]]
 
-vim.cmd [[
-  map <Leader>t :term<cr>
-]]
-
 -- Floaterm keymaps
 vim.cmd [[
   nnoremap   <silent>   <F7>    :FloatermNew<CR>
@@ -100,15 +96,3 @@ vim.cmd [[
   nnoremap   <silent>   <F8>   :FloatermNew lazygit<CR>
 ]]
 
-
-vim.cmd [[ 
-    inoremap <expr> <Tab> pumvisible() ? '<C-n>' :                                                                                                                    
-    \ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>' 
-]]
-
-vim.cmd [[
-    nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
-    nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
-    nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
-    nnoremap <C-o><C-r> :!dotnet run
-]]
