@@ -90,9 +90,19 @@ vim.cmd [[
   tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
   nnoremap   <silent>   <F9>    :FloatermNext<CR>
   tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-  nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-  tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
   nnoremap   <silent>   <F8>   :FloatermNew lazygit<CR>
 ]]
 
+
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+map("n", "<F12>", ":ToggleTerm<CR>", { silent = true })
+map("t", "<F12>", [[<C-\><C-n>:ToggleTermToggleAll<CR>]], { silent = true })
+map("i", "<F12>", [[<C-\><C-n>:ToggleTerm<CR>]], { silent = true })

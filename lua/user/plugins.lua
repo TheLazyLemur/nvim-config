@@ -1,14 +1,14 @@
-local fn = vim.fn
-
 vim.cmd [[
 call plug#begin()
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/telescope.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'voldikss/vim-floaterm'
+    Plug 'akinsho/toggleterm.nvim'
     Plug 'preservim/nerdtree'
 
-    Plug 'github/Copilot'
+    Plug 'github/copilot.vim'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
@@ -28,3 +28,12 @@ call plug#end()
 ]]
 
 vim.cmd [[ colorscheme gruvbox ]]
+
+
+require("toggleterm").setup{
+    direction = 'float',
+    persist_size = false,
+    float_opts = {
+        border = 'curved'
+    }
+}
