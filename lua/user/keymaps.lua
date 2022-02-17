@@ -2,21 +2,11 @@ local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
 
--- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
 
 -- Normal --
 -- Better window navigation
@@ -82,19 +72,6 @@ vim.cmd [[
   nnoremap <C-f> :NERDTreeFind<CR>
 ]]
 
--- Floaterm keymaps
-vim.cmd [[
-  nnoremap   <silent>   <F7>    :FloatermNew<CR>
-  tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
-  nnoremap   <silent>   <F8>    :FloatermPrev<CR>
-  tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
-  nnoremap   <silent>   <F9>    :FloatermNext<CR>
-  tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-
-  nnoremap   <silent>   <F8>   :FloatermNew lazygit<CR>
-]]
-
-
 function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
@@ -103,6 +80,18 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
+function _lazygit_toggle()
+    lazygit:toggle()
+end
+
 map("n", "<F12>", ":ToggleTerm<CR>", { silent = true })
 map("t", "<F12>", [[<C-\><C-n>:ToggleTermToggleAll<CR>]], { silent = true })
 map("i", "<F12>", [[<C-\><C-n>:ToggleTerm<CR>]], { silent = true })
+map("n", "<leader><leader>g", [[<cmd>lua _lazygit_toggle()<CR>]], {noremap = true, silent = true})
+map("n", "<leader><leader>t", ":ToggleTerm<CR>", {noremap = true, silent = true})
+map("t", "<leader><leader>t", [[<C-\><C-n>:ToggleTermToggleAll<CR>]], { silent = true })
+map("n", "<S><S><S>", ":ToggleTerm<CR>", { silent = true })
+
