@@ -8,34 +8,30 @@ function setup_plugins()
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/telescope.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'preservim/nerdtree'
     Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
 
-    Plug 'L3MON4D3/LuaSnip'
-    Plug 'github/copilot.vim'
-    Plug 'godlygeek/tabular'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'williamboman/nvim-lsp-installer' 
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/nvim-cmp'
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'preservim/vim-markdown', { 'for': 'markdown' }
-    Plug 'rafamadriz/friendly-snippets'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'L3MON4D3/LuaSnip'
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'mattn/emmet-vim'
-    Plug 'pangloss/vim-javascript'
+    Plug 'github/copilot.vim'
+    Plug 'godlygeek/tabular'
 
     Plug 'autoload/onedark.vim'
     Plug 'joshdick/onedark.vim'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'mhinz/vim-startify'
     Plug 'morhetz/gruvbox'
-
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'williamboman/nvim-lsp-installer' 
     call plug#end()
     ]]
 
