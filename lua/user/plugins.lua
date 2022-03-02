@@ -26,6 +26,7 @@ function setup_plugins()
         Plug 'L3MON4D3/LuaSnip'
         Plug 'saadparwaiz1/cmp_luasnip'
         Plug 'github/copilot.vim'
+        Plug 'vim-syntastic/syntastic'
 
         Plug 'dracula/vim', { 'as': 'dracula' }
         Plug 'mhinz/vim-startify'
@@ -44,4 +45,5 @@ function setup_plugins()
 end
 
 pcall(setup_plugins)
+
 
