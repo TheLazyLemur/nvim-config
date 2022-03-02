@@ -1,41 +1,37 @@
 function setup_plugins()
     vim.cmd [[
     call plug#begin()
-    Plug 'airblade/vim-gitgutter'
-    Plug 'akinsho/toggleterm.nvim'
-    Plug 'dbakker/vim-paragraph-motion'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/telescope.nvim'
-    Plug 'preservim/nerdtree'
-    Plug 'tpope/vim-sensible'
-    Plug 'vim-airline/vim-airline'
+        Plug 'nvim-lua/plenary.nvim'
+        Plug 'nvim-lua/popup.nvim'
+        Plug 'tpope/vim-sensible'
+        Plug 'akinsho/toggleterm.nvim'
+        Plug 'nvim-lua/telescope.nvim'
+        Plug 'dbakker/vim-paragraph-motion'
+        Plug 'airblade/vim-gitgutter'
+        Plug 'easymotion/vim-easymotion'
+        Plug 'preservim/nerdtree'
+        Plug 'vim-airline/vim-airline'
+        Plug 'mattn/emmet-vim'
 
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'williamboman/nvim-lsp-installer' 
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-cmdline'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'L3MON4D3/LuaSnip'
-    Plug 'L3MON4D3/LuaSnip'
-    Plug 'saadparwaiz1/cmp_luasnip'
-    Plug 'mattn/emmet-vim'
-    Plug 'github/copilot.vim'
-    Plug 'godlygeek/tabular'
+        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'williamboman/nvim-lsp-installer' 
+        Plug 'hrsh7th/nvim-cmp'
+        Plug 'hrsh7th/cmp-nvim-lsp'
+        Plug 'hrsh7th/cmp-buffer'
+        Plug 'hrsh7th/cmp-cmdline'
+        Plug 'hrsh7th/cmp-path'
+        Plug 'L3MON4D3/LuaSnip'
+        Plug 'L3MON4D3/LuaSnip'
+        Plug 'saadparwaiz1/cmp_luasnip'
+        Plug 'github/copilot.vim'
 
-    Plug 'autoload/onedark.vim'
-    Plug 'joshdick/onedark.vim'
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'mhinz/vim-startify'
-    Plug 'morhetz/gruvbox'
+        Plug 'dracula/vim', { 'as': 'dracula' }
+        Plug 'mhinz/vim-startify'
     call plug#end()
     ]]
 
-    vim.cmd [[ let g:airline_theme='onedark' ]]
+    vim.cmd [[ let g:airline_theme='dracula' ]]
 
     require("toggleterm").setup{
         direction = 'float',
