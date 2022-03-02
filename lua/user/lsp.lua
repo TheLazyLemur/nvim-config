@@ -36,6 +36,13 @@ require('lspconfig')['gopls'].setup {
 
 require('lspconfig')['sumneko_lua'].setup {
     capabilities = capabilities;
+      settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    },
     on_attach = function()
         lsp_keymaps()
     end,

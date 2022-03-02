@@ -12,6 +12,7 @@ function setup_plugins()
         Plug 'preservim/nerdtree'
         Plug 'vim-airline/vim-airline'
         Plug 'mattn/emmet-vim'
+        Plug '/home/dan/Workspace/Personal/plugins/stackmap.nvim'
 
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         Plug 'neovim/nvim-lspconfig'
