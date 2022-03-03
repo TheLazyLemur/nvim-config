@@ -12,41 +12,50 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require('lspconfig')['pyright'].setup {
-    capabilities = capabilities;
-    on_attach = function()
-        lsp_keymaps()
-    end,
-}
+local async = require("plenary.async")
+local notify = require("notify").async
 
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/home/dan/omnisharp-linux-x64-net6.0/OmniSharp"
-require'lspconfig'.omnisharp.setup{
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
-    capabilities = capabilities;
-    on_attach = function()
-        lsp_keymaps()
-    end,
-}
+async.run(function()
+    notify("Loading LSP servers")
 
-require('lspconfig')['gopls'].setup {
-    capabilities = capabilities;
-    on_attach = function()
-        lsp_keymaps()
-        require "lang.go"
-    end,
-}
+    local pid = vim.fn.getpid()
+    local omnisharp_bin = "/home/dan/omnisharp-linux-x64-net6.0/OmniSharp"
+    require'lspconfig'.omnisharp.setup{
+        cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+        capabilities = capabilities;
+        on_attach = function()
+            lsp_keymaps()
+        end,
+    }
 
-require('lspconfig')['sumneko_lua'].setup {
-    capabilities = capabilities;
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
+    require('lspconfig')['pyright'].setup {
+        capabilities = capabilities;
+        on_attach = function()
+            lsp_keymaps()
+        end,
+    }
+
+    require('lspconfig')['gopls'].setup {
+        capabilities = capabilities;
+        on_attach = function()
+            lsp_keymaps()
+            require "lang.go"
+        end,
+    }
+
+    require('lspconfig')['sumneko_lua'].setup {
+        capabilities = capabilities;
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { 'vim' }
+                }
             }
-        }
-    },
-    on_attach = function()
-        lsp_keymaps()
-    end,
-}
+        },
+        on_attach = function()
+            lsp_keymaps()
+        end,
+    }
+
+    notify("LSP's loaded")
+end)

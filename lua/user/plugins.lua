@@ -12,11 +12,13 @@ function setup_plugins()
         Plug 'preservim/nerdtree'
         Plug 'vim-airline/vim-airline'
         Plug 'mattn/emmet-vim'
-        Plug '/home/dan/Workspace/Personal/plugins/stackmap.nvim'
+        Plug 'McAuleyPenney/tidy.nvim'
+        Plug 'edluffy/specs.nvim'
+        Plug 'rcarriga/nvim-notify'
 
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         Plug 'neovim/nvim-lspconfig'
-        Plug 'williamboman/nvim-lsp-installer' 
+        Plug 'williamboman/nvim-lsp-installer'
         Plug 'hrsh7th/nvim-cmp'
         Plug 'hrsh7th/cmp-nvim-lsp'
         Plug 'hrsh7th/cmp-buffer'
@@ -45,5 +47,3 @@ function setup_plugins()
 end
 
 pcall(setup_plugins)
-
-
