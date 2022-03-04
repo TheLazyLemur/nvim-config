@@ -46,6 +46,7 @@ km("n", "<C-n>", "<cmd>NERDTree<CR>")
 km("n", "<C-t>", "<cmd>NERDTreeToggle<CR>")
 km("n", "<C-f>", "<cmd>NERDTreeFind<CR>")
 
+-- ToggleTerm keymaps
 local Terminal  = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 local function _lazygit_toggle()
@@ -59,4 +60,3 @@ km("n", "<leader><leader>g", _lazygit_toggle, {noremap = true, silent = true})
 km("n", "<leader><leader>t", ":ToggleTerm<CR>", {noremap = true, silent = true})
 km("t", "<leader><leader>t", [[<C-\><C-n>:ToggleTermToggleAll<CR>]], { silent = true })
 km("n", "<leader><leader><leader>", ":ToggleTerm<CR>", { silent = true })
-

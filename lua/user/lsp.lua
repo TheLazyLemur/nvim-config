@@ -43,6 +43,20 @@ async.run(function()
         end,
     }
 
+    require('lspconfig')['bashls'].setup {
+        capabilities = capabilities;
+        on_attach = function()
+            lsp_keymaps()
+        end,
+    }
+
+    require('lspconfig')['kotlin_language_server'].setup {
+        capabilities = capabilities;
+        on_attach = function()
+            lsp_keymaps()
+        end,
+    }
+
     require('lspconfig')['sumneko_lua'].setup {
         capabilities = capabilities;
         settings = {
