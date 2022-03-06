@@ -29,6 +29,9 @@ function setup_plugins()
         Plug 'saadparwaiz1/cmp_luasnip'
         Plug 'github/copilot.vim'
         Plug 'vim-syntastic/syntastic'
+        Plug 'rmagatti/goto-preview'
+        Plug 'kosayoda/nvim-lightbulb'
+        Plug 'weilbith/nvim-code-action-menu'
 
         Plug 'dracula/vim', { 'as': 'dracula' }
         Plug 'mhinz/vim-startify'
@@ -47,3 +50,63 @@ function setup_plugins()
 end
 
 pcall(setup_plugins)
+
+require('specs').setup{
+    show_jumps  = true,
+    min_jump = 30,
+    popup = {
+        delay_ms = 0, -- delay before popup displays
+        inc_ms = 10, -- time increments used for fade/resize effects
+        blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
+        width = 100,
+        winhl = "PMenu",
+        fader = require('specs').linear_fader,
+        resizer = require('specs').shrink_resizer
+    },
+    ignore_filetypes = {},
+    ignore_buftypes = {
+        nofile = true,
+    },
+}
+
+vim.cmd [[
+    function! s:gitModified()
+        return map(['~/.config/nvim', '~/.zshrc', '~/.bash_files'], "{'line': v:val, 'path': v:val}")
+    endfunction
+
+    let g:startify_custom_header =
+    \ startify#pad(split(system('figlet -w 100 DVim'), '\n'))
+        let g:startify_lists = [
+              \ { 'type': function('s:gitModified'),  'header': ['  base files']},
+              \ { 'type': 'files',     'header': ['   Recent']            },
+              \ { 'type': 'dir',       'header': ['   Recent '. getcwd()] },
+              \ { 'type': 'sessions',  'header': ['   Sessions']       },
+              \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+              \ { 'type': 'commands',  'header': ['   Commands']       },
+              \ ]
+]]
+
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+require'nvim-lightbulb'.setup {
+    ignore = {},
+    sign = {
+        enabled = true,
+        priority = 10,
+    },
+    float = {
+        enabled = false,
+        text = "💡",
+        win_opts = {},
+    },
+    virtual_text = {
+        enabled = false,
+        text = "💡",
+        hl_mode = "replace",
+    },
+    status_text = {
+        enabled = false,
+        text = "💡",
+        text_unavailable = ""
+    }
+}
