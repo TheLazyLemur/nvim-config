@@ -19,12 +19,9 @@ local function lsp_keymaps()
     km("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
     km("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer=0})
     require('goto-preview').setup {}
-    vim.cmd [[
-        nnoremap <leader>gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
-        nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
-        nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
-        nnoremap gpr <cmd>lua require('goto-preview').goto_preview_references()<CR>
-    ]]
+    km("n", "<leader>gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+    km("n", "<leader>gP", "<cmd>lua require('goto-preview').close_all_win()<CR>")
+    km("n", "<leader>gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>")
 end
 
 for _, name in pairs(servers) do
