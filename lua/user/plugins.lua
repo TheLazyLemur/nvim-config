@@ -17,6 +17,8 @@ function setup_plugins()
         Plug 'rcarriga/nvim-notify'
         Plug 'ryanoasis/vim-devicons'
         Plug 'DrTom/fsharp-vim'
+        Plug 'vimwiki/vimwiki'
+        Plug 'mkitt/tabline.vim'
 
         Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
         Plug 'neovim/nvim-lspconfig'
