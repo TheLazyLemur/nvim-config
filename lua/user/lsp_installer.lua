@@ -2,12 +2,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local km = vim.keymap.set
 
 local servers = {
-    "bashls",
-    "pyright",
     "sumneko_lua",
-    "kotlin_language_server",
-    "omnisharp",
-    "gopls",
 }
 
 local function lsp_keymaps()
