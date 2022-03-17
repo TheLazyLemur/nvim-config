@@ -1,48 +1,60 @@
-local function setup_plugins()
-    vim.cmd [[
-    call plug#begin()
-        Plug 'nvim-lua/plenary.nvim'
-        Plug 'nvim-lua/popup.nvim'
-        Plug 'tpope/vim-sensible'
-        Plug 'akinsho/toggleterm.nvim'
-        Plug 'nvim-lua/telescope.nvim'
-        Plug 'dbakker/vim-paragraph-motion'
-        Plug 'airblade/vim-gitgutter'
-        Plug 'easymotion/vim-easymotion'
-        Plug 'preservim/nerdtree'
-        Plug 'vim-airline/vim-airline'
-        Plug 'mattn/emmet-vim'
-        Plug 'McAuleyPenney/tidy.nvim'
-        Plug 'rcarriga/nvim-notify'
-        Plug 'ryanoasis/vim-devicons'
-        Plug 'vimwiki/vimwiki'
-        Plug 'mkitt/tabline.vim'
-
-        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-        Plug 'neovim/nvim-lspconfig'
-        Plug 'williamboman/nvim-lsp-installer'
-        Plug 'hrsh7th/nvim-cmp'
-        Plug 'hrsh7th/cmp-nvim-lsp'
-        Plug 'hrsh7th/cmp-buffer'
-        Plug 'hrsh7th/cmp-cmdline'
-        Plug 'hrsh7th/cmp-path'
-        Plug 'L3MON4D3/LuaSnip'
-        Plug 'saadparwaiz1/cmp_luasnip'
-        Plug 'hrsh7th/cmp-vsnip'
-        Plug 'hrsh7th/vim-vsnip'
-        Plug 'github/copilot.vim'
-
-        Plug 'vim-syntastic/syntastic'
-        Plug 'rmagatti/goto-preview'
-        Plug 'martinda/Jenkinsfile-vim-syntax'
-        Plug 'kosayoda/nvim-lightbulb'
-        Plug 'weilbith/nvim-code-action-menu'
-        Plug 'rafamadriz/friendly-snippets'
-
-        Plug 'dracula/vim', { 'as': 'dracula' }
-        Plug 'mhinz/vim-startify'
-    call plug#end()
-    ]]
+local function install_plugins(plugins_to_install)
+    local Plug = vim.fn['plug#']
+    vim.call('plug#begin')
+    for _, plugin in ipairs(plugins_to_install) do
+        if plugin[2] then
+            Plug(plugin[1], plugin[2])
+        else
+            Plug(plugin)
+        end
+    end
+    vim.call('plug#end')
 end
 
-setup_plugins()
+local plugs = {
+    'nvim-lua/plenary.nvim',
+    'nvim-lua/popup.nvim',
+    'tpope/vim-sensible',
+    'akinsho/toggleterm.nvim',
+    'nvim-lua/telescope.nvim',
+    'dbakker/vim-paragraph-motion',
+    'airblade/vim-gitgutter',
+    'easymotion/vim-easymotion',
+    'preservim/nerdtree',
+    'vim-airline/vim-airline',
+    'mattn/emmet-vim',
+    'McAuleyPenney/tidy.nvim',
+    'rcarriga/nvim-notify',
+    'ryanoasis/vim-devicons',
+    'vimwiki/vimwiki',
+    'mkitt/tabline.vim',
+
+    {'nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}},
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-path',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+    'github/copilot.vim',
+
+    'vim-syntastic/syntastic',
+    'rmagatti/goto-preview',
+    'martinda/Jenkinsfile-vim-syntax',
+    'kosayoda/nvim-lightbulb',
+    'weilbith/nvim-code-action-menu',
+    'rafamadriz/friendly-snippets',
+
+    {'dracula/vim', { ['as'] = 'dracula' }},
+    'mhinz/vim-startify',
+}
+
+local ran, errorMsg = pcall( install_plugins, plugs )
+if not ran then
+    error("Function errored on run " .. "\n" .. errorMsg)
+end
