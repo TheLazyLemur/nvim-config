@@ -41,6 +41,7 @@ local plugs = {
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
+    'simrat39/symbols-outline.nvim',
     'github/copilot.vim',
 
     'vim-syntastic/syntastic',

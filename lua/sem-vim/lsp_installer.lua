@@ -16,6 +16,8 @@ local function lsp_keymaps()
     km("n", "<leader>gpd", require('goto-preview').goto_preview_definition)
     km("n", "<leader>gP", require('goto-preview').close_all_win)
     km("n", "<leader>gpr", require('goto-preview').goto_preview_references)
+
+    km("n", "<leader>s", "<cmd>SymbolsOutline<CR>")
 end
 
 for _, name in pairs(servers) do
