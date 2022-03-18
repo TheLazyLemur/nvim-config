@@ -18,10 +18,10 @@ km("n", "<C-Up>", ":resize +2<CR>")
 km("n", "<C-k>", ":resize +2<CR>")
 km("n", "<C-Down>", ":resize -2<CR>")
 km("n", "<C-j>", ":resize -2<CR>")
-km("n", "<C-Left>", ":vertical resize -2<CR>")
-km("n", "<C-h>", ":vertical resize -2<CR>")
-km("n", "<C-Right>", ":vertical resize +2<CR>")
-km("n", "<C-l>", ":vertical resize +2<CR>")
+km("n", "<C-Left>", ":vertical resize +2<CR>")
+km("n", "<C-h>", ":vertical resize +2<CR>")
+km("n", "<C-Right>", ":vertical resize -2<CR>")
+km("n", "<C-l>", ":vertical resize -2<CR>")
 
 -- Shift = Tabs
 -- Navtigate tabs
