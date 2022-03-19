@@ -15,21 +15,23 @@ local plugs = {
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
     'tpope/vim-sensible',
+    'windwp/nvim-autopairs',
     'akinsho/toggleterm.nvim',
     'nvim-lua/telescope.nvim',
-    'dbakker/vim-paragraph-motion',
     'airblade/vim-gitgutter',
     'easymotion/vim-easymotion',
     'preservim/nerdtree',
     'vim-airline/vim-airline',
-    'mattn/emmet-vim',
-    'McAuleyPenney/tidy.nvim',
-    'rcarriga/nvim-notify',
     'ryanoasis/vim-devicons',
     'vimwiki/vimwiki',
     'mkitt/tabline.vim',
+    'rmagatti/goto-preview',
+    'kosayoda/nvim-lightbulb',
+    'mhinz/vim-startify',
+    'folke/which-key.nvim',
+    {'dracula/vim', { ['as'] = 'dracula' }},
 
-    {'nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'}},
+    {'nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate'} },
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
     'hrsh7th/nvim-cmp',
@@ -41,20 +43,28 @@ local plugs = {
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
-    'github/copilot.vim',
-
-    'vim-syntastic/syntastic',
-    'rmagatti/goto-preview',
-    'martinda/Jenkinsfile-vim-syntax',
-    'kosayoda/nvim-lightbulb',
-    'weilbith/nvim-code-action-menu',
     'rafamadriz/friendly-snippets',
+    'github/copilot.vim',
+    'ldelossa/litee.nvim',
 
-    {'dracula/vim', { ['as'] = 'dracula' }},
-    'mhinz/vim-startify',
+    'martinda/Jenkinsfile-vim-syntax',
+    'mattn/emmet-vim',
 }
 
 local ran, errorMsg = pcall( install_plugins, plugs )
 if not ran then
     error("Function errored on run " .. "\n" .. errorMsg)
 end
+
+require 'nvim-autopairs'.setup{}
+require 'which-key'.setup{}
+require('litee.lib').setup({
+    tree = {
+        icon_set = "codicons"
+    },
+    panel = {
+        orientation = "left",
+        panel_size  = 30
+    }
+})
+

@@ -20,7 +20,6 @@ RELOAD_CONFIG = function ()
     R("sem-vim.completion")
     R("sem-vim.lightbulb")
     R("sem-vim.lsp_installer")
-    require("notify").notify("Neovim reloaded", "info")
 end
 
 require "sem-vim.options"
@@ -35,5 +34,3 @@ require "sem-vim.treesitter"
 require "sem-vim.completion"
 require "sem-vim.lightbulb"
 require "sem-vim.lsp_installer"
-
-require("notify").notify("Neovim loaded", "info")

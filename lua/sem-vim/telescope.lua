@@ -4,7 +4,10 @@ local telescope = require('telescope.builtin')
 
 local ignore_patterns = {
     "venv",
-    "node_modules"
+    "node_modules",
+    "bin",
+    "leolite",
+    "obj"
 }
 
 local function find_files()
@@ -15,6 +18,12 @@ end
 
 local function live_grep()
     telescope.live_grep({
+        file_ignore_patterns = ignore_patterns
+    })
+end
+
+local function diagnostics()
+    telescope.diagnostics({
         file_ignore_patterns = ignore_patterns
     })
 end
@@ -32,3 +41,4 @@ km("n", "<leader>f", find_files)
 km("n", "<leader>g", live_grep)
 km("n", "<leader>b", find_buffers)
 km("n", "<leader>h", help_tags)
+km("n", "<leader>df", diagnostics)
