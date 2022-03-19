@@ -65,7 +65,7 @@ lsp_installer.on_server_ready(function(server)
         on_attach = function ()
             require('goto-preview').setup {}
 
-            local group = vim.api.nvim_create_augroup("hellohello", {clear = true})
+            local group = vim.api.nvim_create_augroup("lsp", {clear = true})
 
             vim.api.nvim_create_autocmd("lsp", { callback = function ()
                 vim.lsp.buf.formatting_seq_sync()
