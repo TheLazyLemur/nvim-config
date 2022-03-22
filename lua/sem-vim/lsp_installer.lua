@@ -36,6 +36,7 @@ local function lsp_keymaps()
     km("n", "<leader>gR", require('goto-preview').goto_preview_references)
     km("n", "<leader>gI", require('goto-preview').goto_preview_implementation)
 
+    km("n", "<leader>s", "<cmd>SymbolsOutline<CR>")
     km("n", "<leader>gX", require('goto-preview').close_all_win)
 end
 
@@ -67,7 +68,7 @@ lsp_installer.on_server_ready(function(server)
 
             local group = vim.api.nvim_create_augroup("lsp", {clear = true})
 
-            vim.api.nvim_create_autocmd("lsp", { callback = function ()
+            vim.api.nvim_create_autocmd("BufWritePre", { callback = function ()
                 vim.lsp.buf.formatting_seq_sync()
             end, group = "lsp", buffer = 0 })
 

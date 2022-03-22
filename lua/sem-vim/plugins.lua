@@ -46,6 +46,7 @@ local plugs = {
     'rafamadriz/friendly-snippets',
     'github/copilot.vim',
     'ldelossa/litee.nvim',
+    'simrat39/symbols-outline.nvim',
 
     'martinda/Jenkinsfile-vim-syntax',
     'mattn/emmet-vim',
