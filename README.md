@@ -7,6 +7,18 @@ essentail needs when it comes to a Code Editing environment. This setup ultimatl
 workflow to stay consistant acrros what ever project/language I am working on with no configuration
 gotchas.
 
+### Initial setup
+
+
+- Have Neovim nightly installed
+- Install vim-plug 
+- clone this directory to `~/.config/nvim` on Linux and `Appdata\Local\nvim` on Windows
+- On first launch run `:PlugInstall`
+- Restart Neovim
+
+* NB - When you clone this repo it will be called nvim-config. Rename it to nvim or clone it with this command `git clone https://github.com/TheLazyLemur/nvim-config nvim` *
+
+
 ### Check List
 
 
