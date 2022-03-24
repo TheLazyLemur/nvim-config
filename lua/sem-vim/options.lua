@@ -37,10 +37,20 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-
 vim.opt.shortmess:append "c"
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-vim.cmd [[filetype plugin indent on]]
+function FIX_S_LINE()
+    vim.opt.laststatus = 3
+    vim.cmd [[ highlight WinSeparator guibg=None ]]
+end
+
+vim.cmd [[
+    set whichwrap+=<,>,[,],h,l
+    set iskeyword+=-
+    filetype plugin indent on
+
+    function DelayedSetVariables(timer)
+        lua FIX_S_LINE()
+    endfunction
+    let timer=timer_start(500,'DelayedSetVariables')
+]]
